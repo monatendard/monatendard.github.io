@@ -9,6 +9,13 @@
   <meta property="og:description" content="넓은 영문, 자연스러운 한글. 한 칸과 두 칸이 정확히 만나는 코딩 글꼴.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://monatendard.github.io/">
+  <meta property="og:image" content="https://monatendard.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Monatendard — 한글 코딩 글꼴">
+  <meta name="twitter:description" content="넓은 영문, 자연스러운 한글. 한 칸과 두 칸이 정확히 만나는 코딩 글꼴.">
+  <meta name="twitter:image" content="https://monatendard.github.io/assets/og-image.png">
   <link rel="canonical" href="https://monatendard.github.io/">
   <link rel="stylesheet" href="./assets/fonts/monatendard.css">
   <link rel="stylesheet" href="./styles.css">
@@ -26,7 +33,18 @@
       <span aria-hidden="true">M</span>
       <span class="brand-label">Monatendard</span>
     </a>
-    <nav class="site-nav" aria-label="주요 메뉴">
+    <button class="mobile-menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="site-nav">
+      <svg class="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg class="menu-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
       <a href="#try">직접 써보기</a>
       <a href="#setup">설정 가이드</a>
       <a href="#design">설계</a>

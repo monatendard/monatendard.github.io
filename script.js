@@ -256,3 +256,38 @@ window.addEventListener(
   },
   { passive: true },
 );
+
+// Mobile Menu Toggle
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+const siteNav = document.querySelector("#site-nav");
+
+function toggleMobileMenu(forceClose = false) {
+  if (!mobileMenuToggle || !siteNav) return;
+
+  const isOpen = siteNav.classList.contains("is-open");
+  const shouldClose = forceClose || isOpen;
+
+  siteNav.classList.toggle("is-open", !shouldClose);
+  mobileMenuToggle.setAttribute("aria-expanded", String(!shouldClose));
+  mobileMenuToggle.setAttribute("aria-label", shouldClose ? "메뉴 열기" : "메뉴 닫기");
+  document.body.style.overflow = shouldClose ? "" : "hidden";
+}
+
+mobileMenuToggle?.addEventListener("click", () => toggleMobileMenu());
+
+// Close menu when a nav link is clicked
+siteNav?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (siteNav.classList.contains("is-open")) {
+      toggleMobileMenu(true);
+    }
+  });
+});
+
+// Close menu on Escape key
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && siteNav?.classList.contains("is-open")) {
+    toggleMobileMenu(true);
+    mobileMenuToggle?.focus();
+  }
+});
