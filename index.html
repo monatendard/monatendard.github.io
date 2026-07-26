@@ -134,6 +134,7 @@
           <button class="preset-button is-active" type="button" data-sample="code">Code</button>
           <button class="preset-button" type="button" data-sample="korean">한글</button>
           <button class="preset-button" type="button" data-sample="ligature">Ligature</button>
+          <button class="preset-button" type="button" data-sample="nerd">Nerd</button>
         </div>
 
         <div
@@ -190,6 +191,34 @@
       </p>
     </section>
 
+    <section class="nerd-stage reveal" aria-labelledby="nerd-title">
+      <div class="nerd-copy">
+        <p class="section-kicker">Nerd / Powerline</p>
+        <h2 id="nerd-title">프롬프트에도<br>표정이 필요하니까.</h2>
+        <p>
+          현재 beta.1에 포함된 55개 PUA 기호 중 Powerline 계열을
+          실제 Monatendard 웹폰트로 보여줍니다.
+        </p>
+      </div>
+
+      <div class="nerd-demo">
+        <div class="nerd-terminal" aria-label="Powerline 기호를 사용한 터미널 프롬프트 예시">
+          <p class="terminal-label">~/projects/monatendard</p>
+          <p class="terminal-prompt">
+            <span class="prompt-branch"><span aria-hidden="true">&#xE0A0;</span> main</span><span class="prompt-divider prompt-divider-acid" aria-hidden="true">&#xE0B0;</span><span class="prompt-path"> ~/Monatendard </span><span class="prompt-divider prompt-divider-dark" aria-hidden="true">&#xE0B0;</span><span class="prompt-command"> git status</span>
+          </p>
+          <p class="terminal-result">On branch main · working tree clean</p>
+        </div>
+
+        <div class="nerd-glyphs" aria-label="포함된 Powerline 글리프 예시">
+          <span><b aria-hidden="true">&#xE0A0;</b><small>U+E0A0</small></span>
+          <span><b aria-hidden="true">&#xE0B0;</b><small>U+E0B0</small></span>
+          <span><b aria-hidden="true">&#xE0B1;</b><small>U+E0B1</small></span>
+          <span><b aria-hidden="true">&#xE0B2;</b><small>U+E0B2</small></span>
+        </div>
+      </div>
+    </section>
+
     <section class="facts section-light" aria-label="Monatendard 주요 특징">
       <div class="fact reveal">
         <span class="fact-value">92.5%</span>
@@ -232,9 +261,9 @@
         </a>
 
         <ol class="install-steps">
-          <li><span>01</span> ZIP 파일의 압축을 풉니다.</li>
-          <li><span>02</span> <code>Install-Monatendard.ps1</code>을 실행합니다.</li>
-          <li><span>03</span> 편집기에서 <code>Monatendard</code>를 선택합니다.</li>
+          <li><span class="step-number">01</span><span class="step-copy">ZIP 파일의 압축을 풉니다.</span></li>
+          <li><span class="step-number">02</span><span class="step-copy"><code>Install-Monatendard.ps1</code>을 실행합니다.</span></li>
+          <li><span class="step-number">03</span><span class="step-copy">편집기에서 <code>Monatendard</code>를 선택합니다.</span></li>
         </ol>
 
         <p class="checksum">

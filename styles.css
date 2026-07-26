@@ -702,6 +702,129 @@ a {
   line-height: 1.7;
 }
 
+.nerd-stage {
+  display: grid;
+  padding: clamp(6rem, 10vw, 10rem) var(--gutter);
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(4rem, 9vw, 10rem);
+  border-top: 1px solid var(--line-dark);
+}
+
+.nerd-copy {
+  align-self: center;
+}
+
+.nerd-copy h2 {
+  font-size: clamp(3rem, 5.2vw, 6rem);
+  line-height: 1.02;
+}
+
+.nerd-copy > p:last-child {
+  max-width: 31rem;
+  margin: 2.5rem 0 0;
+  color: #919193;
+  line-height: 1.8;
+}
+
+.nerd-demo {
+  min-width: 0;
+  align-self: center;
+}
+
+.nerd-terminal {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  background: #101012;
+  font-family: "Monatendard", monospace;
+}
+
+.terminal-label,
+.terminal-result {
+  margin: 0;
+  color: #6f6f73;
+  font-size: 0.72rem;
+}
+
+.terminal-prompt {
+  display: flex;
+  margin: 2rem 0;
+  align-items: stretch;
+  flex-wrap: wrap;
+  font-family: "Monatendard", monospace;
+  font-size: clamp(0.82rem, 1.7vw, 1.25rem);
+  line-height: 2.2;
+}
+
+.prompt-branch,
+.prompt-path {
+  padding: 0 0.65rem;
+  white-space: nowrap;
+}
+
+.prompt-branch {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+.prompt-path {
+  background: #2a2a2e;
+  color: var(--paper);
+}
+
+.prompt-divider {
+  width: 1em;
+  margin-right: -0.02em;
+  font-size: 2.2em;
+  line-height: 1;
+}
+
+.prompt-divider-acid {
+  color: var(--acid);
+}
+
+.prompt-divider-dark {
+  color: #2a2a2e;
+}
+
+.prompt-command {
+  padding-left: 0.6rem;
+  color: #a9a9a4;
+  white-space: nowrap;
+}
+
+.nerd-glyphs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.nerd-glyphs > span {
+  display: grid;
+  min-width: 0;
+  padding: 1.25rem 0.5rem;
+  place-items: center;
+  border-right: 1px solid var(--line-dark);
+  font-family: "Monatendard", monospace;
+}
+
+.nerd-glyphs > span:first-child {
+  border-left: 1px solid var(--line-dark);
+}
+
+.nerd-glyphs b {
+  color: var(--acid);
+  font-size: clamp(1.6rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.nerd-glyphs small {
+  margin-top: 0.75rem;
+  color: #68686c;
+  font-size: 0.58rem;
+}
+
 code {
   font-family: "Monatendard", monospace;
 }
@@ -826,9 +949,17 @@ code {
   line-height: 1.65;
 }
 
-.install-steps li span {
+.install-steps .step-number {
   color: var(--acid);
   font-family: "Monatendard", monospace;
+}
+
+.install-steps .step-copy {
+  min-width: 0;
+}
+
+.install-steps code {
+  white-space: nowrap;
 }
 
 .checksum {
@@ -939,12 +1070,18 @@ code {
 
   .statement-layout,
   .alignment,
+  .nerd-stage,
   .download {
     grid-template-columns: 1fr;
   }
 
   .statement-copy {
     margin-left: auto;
+  }
+
+  .download-copy,
+  .download-panel {
+    min-width: 0;
   }
 
   .tester-toolbar {
@@ -1038,9 +1175,13 @@ code {
   }
 
   .playground h2,
-  .alignment h2,
-  .download h2 {
+  .alignment h2 {
     font-size: clamp(2.2rem, 10vw, 2.5rem);
+    white-space: nowrap;
+  }
+
+  .download h2 {
+    font-size: clamp(2rem, 8.5vw, 2.35rem);
     white-space: nowrap;
   }
 
@@ -1074,8 +1215,16 @@ code {
     font-size: clamp(2rem, 10vw, 4rem);
   }
 
-  .download-panel {
-    min-width: 0;
+  .nerd-copy h2 {
+    font-size: clamp(2.4rem, 11vw, 3.4rem);
+  }
+
+  .terminal-prompt {
+    font-size: 0.78rem;
+  }
+
+  .nerd-glyphs b {
+    font-size: 1.6rem;
   }
 
   .download-main small,

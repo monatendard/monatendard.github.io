@@ -23,6 +23,9 @@ AA가  AA한글  ABC  0123456789`,
 if (상태 === "완료") return "성공";
 const transform = input => output;
 range.start <= value && value >= range.end;`,
+  nerd: `\uE0A0 main  \uE0B0  ~/Monatendard  \uE0B0  git status
+\uE0A1  \uE0A2  \uE0B1  \uE0B2  \uE0B3
+Powerline symbols · U+E0A0–U+E0D4`,
 };
 
 weightControl?.addEventListener("change", (event) => {
