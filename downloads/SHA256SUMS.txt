@@ -1,3 +1,3 @@
-dae17645c0f1ce6f4a53b0e7265c53a68eb55083f8c5aa649c939fb647bea29e  Monatendard-v0.1.0-Desktop.zip
-06ec743eace1c250663977e634f99d7cf25a0499b84e235e905febb211b3c454  Monatendard-v0.1.0-Desktop-Nerd.zip
+88e2bdb18d43145cc0835db9eef94f221a48d46362118f39f202ae45a9937745  Monatendard-v0.1.0-Desktop.zip
+4349cd9e7152e1821e9af7f39ec2531d0a5caefaabc91108ab3926f34928a4ea  Monatendard-v0.1.0-Desktop-Nerd.zip
 caa21113424b05b3a8c07c20bbde0519aa819c06ce9aef526c8b04427ee1a357  Monatendard-v0.1.0-Web.zip
