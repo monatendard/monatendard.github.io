@@ -3,10 +3,262 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Monatendard</title>
+  <meta name="theme-color" content="#0a0a0b">
+  <meta name="description" content="Monaspace의 표현력과 Pretendard의 한글 가독성을 결합한 한글 코딩 글꼴, Monatendard.">
+  <meta property="og:title" content="Monatendard — 한글 코딩 글꼴">
+  <meta property="og:description" content="넓은 영문, 자연스러운 한글. 한 칸과 두 칸이 정확히 만나는 코딩 글꼴.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://monatendard.github.io/">
+  <link rel="canonical" href="https://monatendard.github.io/">
+  <link rel="stylesheet" href="./assets/fonts/monatendard.css">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0b'/%3E%3Cpath d='M14 46V18h8l10 14 10-14h8v28h-9V31L32 43 23 31v15z' fill='%23d8ff58'/%3E%3C/svg%3E">
+  <title>Monatendard — 한글 코딩 글꼴</title>
 </head>
 <body>
-  <h1>Monatendard</h1>
-  <p>Monatendard GitHub Pages가 준비되었습니다.</p>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-header">
+    <a class="brand-mark" href="#top" aria-label="Monatendard 홈">
+      <span aria-hidden="true">M</span>
+      <span class="brand-label">Monatendard</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="#try">직접 써보기</a>
+      <a href="#design">설계</a>
+      <a class="nav-download" href="#download">다운로드 <span aria-hidden="true">↘</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow hero-enter hero-enter-1">Korean monospace · v0.1.0-beta.1</p>
+        <h1 id="hero-title" class="hero-title hero-enter hero-enter-2">Monatendard</h1>
+        <p class="hero-tagline hero-enter hero-enter-3">
+          넓은 영문, 자연스러운 한글.<br>
+          한 칸과 두 칸이 정확히 만나다.
+        </p>
+        <div class="hero-actions hero-enter hero-enter-4">
+          <a class="button button-primary" href="#try">폰트 체험하기</a>
+          <a class="text-link" href="./downloads/Monatendard-v0.1.0-beta.1-Desktop.zip" download>
+            Windows용 받기 <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-specimen hero-enter hero-enter-3" aria-label="Monatendard 글꼴 미리보기">
+        <div class="hero-code" aria-hidden="true">
+          <span class="code-muted">01</span>
+          <span><b>const</b> 오늘 = <i>"만들고 싶은 것을 만든다"</i>;</span>
+          <span class="code-muted">02</span>
+          <span><b>if</b> (idea !== 현실) idea <em>=&gt;</em> 현실;</span>
+          <span class="code-muted">03</span>
+          <span class="code-comment">// AA 두 칸과 가 한 칸은 정확히 같다.</span>
+        </div>
+        <div class="hero-glyphs" aria-hidden="true">
+          <span>가</span><span>A</span><span>A</span>
+        </div>
+      </div>
+
+      <p class="scroll-cue" aria-hidden="true">SCROLL <span></span></p>
+    </section>
+
+    <section class="statement section-light reveal" aria-labelledby="statement-title">
+      <div class="section-kicker">Why Monatendard</div>
+      <div class="statement-layout">
+        <h2 id="statement-title">
+          코드는 영문으로,<br>
+          생각은 한글로 씁니다.
+        </h2>
+        <div class="statement-copy">
+          <p>
+            Monaspace Neon의 리듬과 표현력을 살리고 Pretendard의 한글 윤곽은 그대로 지켰습니다.
+            영문 폭만 92.5%로 다듬어 혼합 문장이 더 자연스럽게 이어집니다.
+          </p>
+          <p class="statement-proof">Monaspace Neon 1.400 × Pretendard 1.3.9</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="playground" id="try" aria-labelledby="playground-title">
+      <div class="playground-head reveal">
+        <div>
+          <p class="section-kicker">Type tester</p>
+          <h2 id="playground-title">직접 써보세요.</h2>
+        </div>
+        <p>아래 문장을 클릭해 원하는 코드와 문장을 입력할 수 있습니다.</p>
+      </div>
+
+      <div class="tester-shell reveal">
+        <div class="tester-toolbar" aria-label="폰트 미리보기 설정">
+          <label class="control">
+            <span>굵기</span>
+            <select id="weight-control">
+              <option value="200">ExtraLight 200</option>
+              <option value="300">Light 300</option>
+              <option value="400" selected>Regular 400</option>
+              <option value="500">Medium 500</option>
+              <option value="600">SemiBold 600</option>
+              <option value="700">Bold 700</option>
+              <option value="800">ExtraBold 800</option>
+            </select>
+          </label>
+
+          <label class="control control-range">
+            <span>크기 <output id="size-output" for="size-control">28px</output></span>
+            <input id="size-control" type="range" min="14" max="48" value="28">
+          </label>
+
+          <div class="control control-buttons">
+            <span>배경</span>
+            <div class="segmented" role="group" aria-label="미리보기 배경">
+              <button class="theme-button is-active" type="button" data-theme-value="dark" aria-pressed="true">Dark</button>
+              <button class="theme-button" type="button" data-theme-value="light" aria-pressed="false">Light</button>
+            </div>
+          </div>
+
+          <label class="switch-control">
+            <input id="italic-control" type="checkbox">
+            <span>Italic</span>
+          </label>
+
+          <label class="switch-control">
+            <input id="ligature-control" type="checkbox" checked>
+            <span>Ligature</span>
+          </label>
+        </div>
+
+        <div class="sample-presets" aria-label="예제 문장 선택">
+          <button class="preset-button is-active" type="button" data-sample="code">Code</button>
+          <button class="preset-button" type="button" data-sample="korean">한글</button>
+          <button class="preset-button" type="button" data-sample="ligature">Ligature</button>
+        </div>
+
+        <div
+          id="font-tester"
+          class="font-tester"
+          contenteditable="true"
+          role="textbox"
+          aria-multiline="true"
+          spellcheck="false"
+          data-theme="dark"
+        >public User 사용자조회(String userId) {
+    // 데이터베이스에서 사용자 정보를 불러옵니다.
+    if (connection == null) {
+        throw new IllegalStateException("연결 정보를 확인하세요.");
+    }
+    return repository.findById(userId);
+}</div>
+        <p class="tester-caption"><span>Monatendard</span><span>실제 beta.1 웹폰트로 렌더링 중</span></p>
+      </div>
+    </section>
+
+    <section class="alignment" id="design" aria-labelledby="alignment-title">
+      <div class="alignment-copy reveal">
+        <p class="section-kicker">Exact 1:2 rhythm</p>
+        <h2 id="alignment-title">AA와 가는<br>같은 너비입니다.</h2>
+        <p>
+          한글 한 글자의 advance를 영문 두 칸과 정확히 맞췄습니다.
+          터미널의 커서, 선택 영역, 들여쓰기와 표가 흐트러지지 않습니다.
+        </p>
+      </div>
+
+      <div class="cell-stage reveal" aria-label="영문 두 글자와 한글 한 글자의 폭 비교">
+        <div class="cell-row cell-row-label" aria-hidden="true">
+          <span>1 cell</span><span>1 cell</span><span>2 cells</span>
+        </div>
+        <div class="cell-row cell-row-glyphs">
+          <span class="one-cell">A</span>
+          <span class="one-cell">A</span>
+          <span class="two-cells">가</span>
+        </div>
+        <div class="cell-ruler" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <p class="cell-equation">1147 + 1147 = 2294 units</p>
+      </div>
+    </section>
+
+    <section class="ligature-stage reveal" aria-labelledby="ligature-title">
+      <p class="section-kicker">Coding expression</p>
+      <h2 id="ligature-title">기호도 문장의 일부니까.</h2>
+      <p class="ligature-line" aria-label="코딩 합자 예시">!=  ===  =&gt;  -&gt;  &lt;=  &gt;=  ::  ...</p>
+      <p class="ligature-note">
+        Monaspace의 <code>calt</code>와 문맥적 표현을 보존해 연산자의 흐름을 또렷하게 읽습니다.
+      </p>
+    </section>
+
+    <section class="facts section-light" aria-label="Monatendard 주요 특징">
+      <div class="fact reveal">
+        <span class="fact-value">92.5%</span>
+        <h3>Latin rhythm</h3>
+        <p>Monaspace Neon의 윤곽과 advance를 함께 조정했습니다.</p>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-value">2×</span>
+        <h3>Korean advance</h3>
+        <p>한글 한 글자는 영문 두 칸과 정확히 일치합니다.</p>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-value">14</span>
+        <h3>Styles</h3>
+        <p>ExtraLight부터 ExtraBold까지, Italic을 함께 제공합니다.</p>
+      </div>
+    </section>
+
+    <section class="download" id="download" aria-labelledby="download-title">
+      <div class="download-copy reveal">
+        <p class="section-kicker">v0.1.0-beta.1</p>
+        <h2 id="download-title">오늘부터<br>코드에 적용하세요.</h2>
+        <p>Windows에서는 관리자 권한 없이 현재 사용자 영역에 설치할 수 있습니다.</p>
+      </div>
+
+      <div class="download-panel reveal">
+        <a class="download-main" href="./downloads/Monatendard-v0.1.0-beta.1-Desktop.zip" download>
+          <span>
+            <strong>Desktop package</strong>
+            <small>TTF 14종 · 설치/제거 스크립트 · 16.5 MB</small>
+          </span>
+          <span class="download-arrow" aria-hidden="true">↓</span>
+        </a>
+        <a class="download-secondary" href="./downloads/Monatendard-v0.1.0-beta.1-Web.zip" download>
+          <span>
+            <strong>Web package</strong>
+            <small>WOFF2 14종 · CSS · 10.8 MB</small>
+          </span>
+          <span aria-hidden="true">↓</span>
+        </a>
+
+        <ol class="install-steps">
+          <li><span>01</span> ZIP 파일의 압축을 풉니다.</li>
+          <li><span>02</span> <code>Install-Monatendard.ps1</code>을 실행합니다.</li>
+          <li><span>03</span> 편집기에서 <code>Monatendard</code>를 선택합니다.</li>
+        </ol>
+
+        <p class="checksum">
+          SHA256
+          <code>865c5fabaf726c0e9bf54e1d853b46dd…</code>
+          <a href="./downloads/SHA256SUMS.txt">전체 체크섬</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Monatendard</strong>
+      <p>Monaspace의 표현력과 Pretendard의 한글 가독성을 잇는 코딩 글꼴.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/monatendard">GitHub Organization</a>
+      <a href="./legal/OFL-1.1.txt">SIL OFL 1.1</a>
+      <a href="./legal/THIRD_PARTY_NOTICES.md">Third-party notices</a>
+    </div>
+    <p class="copyright">© 2026 Monatendard contributors.</p>
+  </footer>
+
+  <script src="./script.js"></script>
 </body>
 </html>
