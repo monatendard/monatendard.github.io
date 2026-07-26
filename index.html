@@ -34,7 +34,7 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="eyebrow hero-enter hero-enter-1">Korean monospace · v0.1.0-beta.1</p>
+        <p class="eyebrow hero-enter hero-enter-1">Korean monospace · v0.1.0</p>
         <h1 id="hero-title" class="hero-title hero-enter hero-enter-2">Monatendard</h1>
         <p class="hero-tagline hero-enter hero-enter-3">
           넓은 영문, 자연스러운 한글.<br>
@@ -42,7 +42,7 @@
         </p>
         <div class="hero-actions hero-enter hero-enter-4">
           <a class="button button-primary" href="#try">폰트 체험하기</a>
-          <a class="text-link" href="./downloads/Monatendard-v0.1.0-beta.1-Desktop.zip" download>
+          <a class="text-link" href="./downloads/Monatendard-v0.1.0-Desktop.zip" download>
             Windows용 받기 <span aria-hidden="true">↓</span>
           </a>
         </div>
@@ -152,7 +152,7 @@
     }
     return repository.findById(userId);
 }</div>
-        <p class="tester-caption"><span>Monatendard</span><span>실제 beta.1 웹폰트로 렌더링 중</span></p>
+        <p class="tester-caption"><span>Monatendard</span><span>실제 v0.1.0 웹폰트로 렌더링 중</span></p>
       </div>
     </section>
 
@@ -196,8 +196,8 @@
         <p class="section-kicker">Nerd / Powerline</p>
         <h2 id="nerd-title">프롬프트에도<br>표정이 필요하니까.</h2>
         <p>
-          현재 beta.1에 포함된 55개 PUA 기호 중 Powerline 계열을
-          실제 Monatendard 웹폰트로 보여줍니다.
+          <code>Monatendard Nerd Font Mono</code>는 누락된 Nerd 아이콘 10,352개를
+          한 칸 폭으로 더합니다. 아래는 일반판에도 포함된 Powerline 글리프입니다.
         </p>
       </div>
 
@@ -239,20 +239,31 @@
 
     <section class="download" id="download" aria-labelledby="download-title">
       <div class="download-copy reveal">
-        <p class="section-kicker">v0.1.0-beta.1</p>
+        <p class="section-kicker">v0.1.0</p>
         <h2 id="download-title">오늘부터<br>코드에 적용하세요.</h2>
-        <p>Windows에서는 관리자 권한 없이 현재 사용자 영역에 설치할 수 있습니다.</p>
+        <p>
+          에디터에는 일반판을, Nerd 아이콘이 필요한 터미널에는
+          <code>Monatendard Nerd Font Mono</code>를 선택하세요.
+          두 패밀리는 함께 설치할 수 있습니다.
+        </p>
       </div>
 
       <div class="download-panel reveal">
-        <a class="download-main" href="./downloads/Monatendard-v0.1.0-beta.1-Desktop.zip" download>
+        <a class="download-main" href="./downloads/Monatendard-v0.1.0-Desktop.zip" download>
           <span>
             <strong>Desktop package</strong>
             <small>TTF 14종 · 설치/제거 스크립트 · 16.5 MB</small>
           </span>
           <span class="download-arrow" aria-hidden="true">↓</span>
         </a>
-        <a class="download-secondary" href="./downloads/Monatendard-v0.1.0-beta.1-Web.zip" download>
+        <a class="download-secondary" href="./downloads/Monatendard-v0.1.0-Desktop-Nerd.zip" download>
+          <span>
+            <strong>Desktop Nerd package</strong>
+            <small>TTF 14종 · Nerd 아이콘 10,352개 · 35.2 MB</small>
+          </span>
+          <span aria-hidden="true">↓</span>
+        </a>
+        <a class="download-secondary" href="./downloads/Monatendard-v0.1.0-Web.zip" download>
           <span>
             <strong>Web package</strong>
             <small>WOFF2 14종 · CSS · 10.8 MB</small>
@@ -261,14 +272,14 @@
         </a>
 
         <ol class="install-steps">
-          <li><span class="step-number">01</span><span class="step-copy">ZIP 파일의 압축을 풉니다.</span></li>
-          <li><span class="step-number">02</span><span class="step-copy"><code>Install-Monatendard.ps1</code>을 실행합니다.</span></li>
-          <li><span class="step-number">03</span><span class="step-copy">편집기에서 <code>Monatendard</code>를 선택합니다.</span></li>
+          <li><span class="step-number">01</span><span class="step-copy">용도에 맞는 ZIP 파일의 압축을 풉니다.</span></li>
+          <li><span class="step-number">02</span><span class="step-copy">패키지에 포함된 설치 스크립트를 실행합니다.</span></li>
+          <li><span class="step-number">03</span><span class="step-copy">앱에서 해당 Monatendard 패밀리를 선택합니다.</span></li>
         </ol>
 
         <p class="checksum">
           SHA256
-          <code>865c5fabaf726c0e9bf54e1d853b46dd…</code>
+          <code>dae17645c0f1ce6f4a53b0e7265c53a…</code>
           <a href="./downloads/SHA256SUMS.txt">전체 체크섬</a>
         </p>
       </div>
@@ -283,6 +294,7 @@
     <div class="footer-links">
       <a href="https://github.com/monatendard">GitHub Organization</a>
       <a href="./legal/OFL-1.1.txt">SIL OFL 1.1</a>
+      <a href="./legal/NERD_FONTS_LICENSE.txt">Nerd Fonts MIT</a>
       <a href="./legal/THIRD_PARTY_NOTICES.md">Third-party notices</a>
     </div>
     <p class="copyright">© 2026 Monatendard contributors.</p>
