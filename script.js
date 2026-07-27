@@ -102,8 +102,8 @@ italicControl?.addEventListener("change", (event) => {
 });
 
 ligatureControl?.addEventListener("change", (event) => {
-  const value = event.target.checked ? "contextual" : "none";
-  tester.style.fontVariantLigatures = value;
+  tester.style.fontVariantLigatures = event.target.checked ? "contextual" : "none";
+  tester.style.fontFeatureSettings = event.target.checked ? "normal" : '"rlig" 0';
 });
 
 // Theme Switcher
