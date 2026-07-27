@@ -541,6 +541,7 @@ input:focus-visible,
 .setup-head h2,
 .alignment h2,
 .ligature-stage h2,
+.nerd-copy h2,
 .download h2 {
   margin: 0;
   font-family: "Monatendard", monospace;
