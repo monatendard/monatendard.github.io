@@ -43,7 +43,7 @@ if (상태 === "완료") return "성공";
 const transform = input => output;
 range.start <= value && value >= range.end;`,
   nerd: `\uE0A0 main  \uE0B0  ~/Monatendard  \uE0B0  git status
-\uE0A1 line:42  \uE0A2 lock:secured  \uE0A3 col:18  \uE0B1 v0.2.1
+\uE0A1 line:42  \uE0A2 lock:secured  \uE0A3 col:18  \uE0B1 v0.2.2
 Powerline & Editor symbols · U+E0A0–U+E0D4`,
 };
 
