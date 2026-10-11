@@ -43,7 +43,7 @@ if (상태 === "완료") return "성공";
 const transform = input => output;
 range.start <= value && value >= range.end;`,
   nerd: `\uE0A0 main  \uE0B0  ~/Monatendard  \uE0B0  git status
-\uE0A1 line:42  \uE0A2 lock:secured  \uE0A3 col:18  \uE0B1 v0.2.3
+\uE0A1 line:42  \uE0A2 lock:secured  \uE0A3 col:18  \uE0B1 v0.3.0
 Powerline & Editor symbols · U+E0A0–U+E0D4`,
 };
 
@@ -202,7 +202,8 @@ document.querySelectorAll(".copy-code-btn").forEach((btn) => {
     const targetId = btn.dataset.copyTarget;
     const codeEl = document.getElementById(targetId);
     if (codeEl) {
-      copyToClipboard(codeEl.textContent.trim(), "에디터 설정 코드가 복사되었습니다!");
+      const message = btn.dataset.copyMessage ?? "에디터 설정 코드가 복사되었습니다!";
+      copyToClipboard(codeEl.textContent.trim(), message);
     }
   });
 });

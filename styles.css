@@ -1336,6 +1336,48 @@ input:focus-visible,
   white-space: nowrap;
 }
 
+.homebrew {
+  margin: 0 0 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line-dark);
+}
+
+.homebrew-head {
+  display: flex;
+  margin-bottom: 0.85rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--acid);
+  font-family: "Monatendard", monospace;
+  font-size: 0.8rem;
+}
+
+.homebrew pre {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  border: 1px solid var(--line-dark);
+  border-radius: 4px;
+  background: var(--ink-soft);
+  color: var(--paper);
+  font-family: "Monatendard", monospace;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.homebrew p {
+  margin: 0.85rem 0 0;
+  color: #828283;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.homebrew p code {
+  color: #b4b4b0;
+  font-family: "Monatendard", monospace;
+}
+
 .checksum {
   display: flex;
   margin: 0;
