@@ -30,6 +30,9 @@ body {
   color: var(--paper);
   font-family: var(--ui-font);
   -webkit-font-smoothing: antialiased;
+  /* 한글은 어절 단위로만 줄을 바꾼다. 너무 긴 어절만 예외로 끊는다. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 button,
@@ -547,6 +550,7 @@ input:focus-visible,
   font-family: "Monatendard", monospace;
   font-weight: 500;
   letter-spacing: -0.055em;
+  text-wrap: balance;
 }
 
 .statement h2 {
@@ -1759,4 +1763,15 @@ input:focus-visible,
     opacity: 1;
     transform: none;
   }
+}
+
+/* 여러 줄로 나뉘는 한글 제목의 위아래 글자가 맞닿지 않도록 줄 간격을 통일한다. */
+.statement h2,
+.playground h2,
+.setup-head h2,
+.alignment h2,
+.ligature-stage h2,
+.nerd-copy h2,
+.download h2 {
+  line-height: 1.16;
 }
