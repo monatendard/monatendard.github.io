@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0a0b">
-  <meta name="description" content="Monaspace의 표현력과 Pretendard의 한글 가독성을 결합한 한글 코딩 글꼴, Monatendard.">
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111113" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Monaspace Neon 영문과 Pretendard 한글을 한 격자에 맞춘 한글 코딩 글꼴, Monatendard.">
   <meta property="og:title" content="Monatendard — 한글 코딩 글꼴">
-  <meta property="og:description" content="넓은 영문, 자연스러운 한글. 한 칸과 두 칸이 정확히 만나는 코딩 글꼴.">
+  <meta property="og:description" content="영문은 한 칸, 한글은 두 칸. Monaspace Neon과 Pretendard를 한 격자에 맞춘 코딩 글꼴.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://monatendard.github.io/">
   <meta property="og:image" content="https://monatendard.github.io/assets/og-image.png">
@@ -14,143 +15,86 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Monatendard — 한글 코딩 글꼴">
-  <meta name="twitter:description" content="넓은 영문, 자연스러운 한글. 한 칸과 두 칸이 정확히 만나는 코딩 글꼴.">
+  <meta name="twitter:description" content="영문은 한 칸, 한글은 두 칸. Monaspace Neon과 Pretendard를 한 격자에 맞춘 코딩 글꼴.">
   <meta name="twitter:image" content="https://monatendard.github.io/assets/og-image.png">
   <link rel="canonical" href="https://monatendard.github.io/">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="./assets/fonts/monatendard.css">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0b'/%3E%3Cpath d='M14 46V18h8l10 14 10-14h8v28h-9V31L32 43 23 31v15z' fill='%23d8ff58'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2318181b'/%3E%3Cpath d='M14 46V18h8l10 14 10-14h8v28h-9V31L32 43 23 31v15z' fill='%23fafaf9'/%3E%3C/svg%3E">
+  <script>
+    // 저장된 테마를 첫 렌더 전에 적용해 깜빡임을 막는다.
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+    } catch {}
+  </script>
   <title>Monatendard — 한글 코딩 글꼴</title>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
-
-  <!-- 복사 완료 안내 토스트 -->
-  <div id="toast" class="toast-message" role="status" aria-live="polite" aria-atomic="true">클립보드에 복사되었습니다!</div>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
   <header class="site-header">
-    <a class="brand-mark" href="#top" aria-label="Monatendard 홈">
-      <span aria-hidden="true">M</span>
-      <span class="brand-label">Monatendard</span>
-    </a>
-    <button class="mobile-menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="site-nav">
-      <svg class="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-      <svg class="menu-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
-      <a href="#try">직접 써보기</a>
-      <a href="#setup">설정 가이드</a>
+    <a class="brand" href="#top">Monatendard</a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="#try">써 보기</a>
       <a href="#design">설계</a>
-      <a href="#nerd">Nerd 아이콘</a>
-      <a class="nav-github" href="https://github.com/younjungpark/Monatendard" target="_blank" rel="noopener" aria-label="GitHub 저장소 바로가기">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-          <path d="M9 18c-4.51 2-5-2-7-2"></path>
-        </svg>
-        <span>GitHub</span>
-      </a>
-      <a class="nav-download" href="#download">다운로드 <span aria-hidden="true">↘</span></a>
+      <a href="#install">설치</a>
+      <a href="https://github.com/younjungpark/Monatendard" target="_blank" rel="noopener">GitHub</a>
+      <button class="theme-toggle" type="button" aria-label="다크 모드로 전환">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
     </nav>
   </header>
 
   <main id="main">
-    <!-- Hero Section -->
+    <!-- Hero: 견본 + 다운로드 -->
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="eyebrow hero-enter hero-enter-1">Korean Monospace · v0.3.0</p>
-        <h1 id="hero-title" class="hero-title hero-enter hero-enter-2">Monatendard</h1>
-        <p class="hero-tagline hero-enter hero-enter-3">
-          넓은 영문, 자연스러운 한글.<br>
-          한 칸과 두 칸이 정확히 만나다.
+        <h1 id="hero-title">영문은 한 칸, 한글은 두 칸.</h1>
+        <p class="lead">
+          Monatendard는 Monaspace Neon의 영문을 원본 그대로 두고,
+          Pretendard 한글을 원래 비율대로 영문 두 칸 폭에 맞춘 코딩 글꼴입니다.
         </p>
-        <div class="hero-actions hero-enter hero-enter-4">
-          <a class="button button-primary" href="#try">폰트 체험하기</a>
-          <a class="text-link" href="https://github.com/younjungpark/Monatendard/releases/download/v0.3.0/Monatendard-v0.3.0-Desktop.zip">
-            Windows용 받기 <span aria-hidden="true">↓</span>
-          </a>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#install">내려받기</a>
+          <a class="button" href="#try">써 보기</a>
         </div>
+        <p class="hero-meta">v0.3.0 · Windows · macOS · 웹폰트 · SIL OFL 1.1</p>
       </div>
 
-      <!-- IDE Frame Mockup -->
-      <div class="hero-specimen hero-enter hero-enter-3 window-mockup" aria-label="Monatendard 글꼴 미리보기 창">
-        <div class="window-header" aria-hidden="true">
-          <div class="window-dots">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-          </div>
-          <div class="window-tab active">
-            <span class="tab-icon">⚡</span>
-            <span class="tab-title">Monatendard.kt</span>
-          </div>
-          <div class="window-badge">1:2 Exact Rhythm</div>
+      <figure class="specimen">
+        <div class="specimen-bar">
+          <span class="specimen-file">user.ts</span>
+          <label class="check">
+            <input id="grid-toggle" type="checkbox">
+            <span>격자 보기</span>
+          </label>
         </div>
-        <div class="window-body">
-          <div class="hero-code" aria-hidden="true">
-            <span class="code-muted">01</span>
-            <span><b>const</b> 오늘 = <i>"만들고 싶은 것을 만든다"</i>;</span>
-            <span class="code-muted">02</span>
-            <span><b>if</b> (idea !== 현실) idea <em>=&gt;</em> 현실;</span>
-            <span class="code-muted">03</span>
-            <span class="code-comment">// AA 두 칸과 가 한 칸은 정확히 같다.</span>
-          </div>
-          <div class="hero-glyphs" aria-hidden="true">
-            <span>가</span><span>A</span><span>A</span>
-          </div>
-        </div>
-      </div>
+<pre class="specimen-code" id="specimen-code"><code><span class="tok-c">// 사용자 이름을 화면에 맞춰 줄인다</span>
+<span class="tok-k">function</span> <span class="tok-f">줄이기</span>(name: <span class="tok-t">string</span>, max = <span class="tok-n">8</span>) {
+  <span class="tok-k">if</span> (name.length &lt;= max) <span class="tok-k">return</span> name;
+  <span class="tok-k">return</span> name.slice(<span class="tok-n">0</span>, max - <span class="tok-n">1</span>) + <span class="tok-s">"…"</span>;
+}
 
-      <p class="scroll-cue" aria-hidden="true">SCROLL <span></span></p>
+<span class="tok-f">줄이기</span>(<span class="tok-s">"Monatendard"</span>);  <span class="tok-c">// "Monaten…"</span>
+<span class="tok-f">줄이기</span>(<span class="tok-s">"모나텐다드"</span>);   <span class="tok-c">// 주석 열도 맞는다</span></code></pre>
+        <figcaption class="specimen-caption">Monatendard Regular · 실제 웹폰트로 렌더링</figcaption>
+      </figure>
     </section>
 
-    <!-- Statement Section -->
-    <section class="statement section-light reveal" aria-labelledby="statement-title">
-      <div class="section-kicker">Why Monatendard</div>
-      <div class="statement-layout">
-        <h2 id="statement-title">
-          코드는 영문으로,<br>
-          생각은 한글로 씁니다.
-        </h2>
-        <div class="statement-copy">
-          <p>
-            Monaspace Neon의 리듬과 표현력을 살리고 Pretendard의 한글 윤곽은 그대로 지켰습니다.
-            영문은 Monaspace 원본 윤곽과 힌팅을 그대로 두고, 한글은 원래 비율을 지킨 채 영문 두 칸에 맞춰 혼합 문장이 더 자연스럽게 이어집니다.
-          </p>
-          <p class="statement-proof">Monaspace Neon 1.400 × Pretendard 1.3.9</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Playground (Type Tester) Section -->
-    <section class="playground" id="try" aria-labelledby="playground-title">
-      <div class="playground-head reveal">
-        <div>
-          <p class="section-kicker">Interactive type tester</p>
-          <h2 id="playground-title">직접 써보세요.</h2>
-        </div>
-        <p>아래 모의 에디터를 클릭하여 굵기, 크기, 줄간격 및 문장을 자유롭게 테스트할 수 있습니다.</p>
+    <!-- 써 보기 -->
+    <section class="section" id="try" aria-labelledby="try-title">
+      <div class="section-head">
+        <h2 id="try-title">써 보기</h2>
+        <p>아래 입력란을 고쳐 쓰면 바로 반영됩니다. 굵기, 크기, 줄 간격을 바꿔 보세요.</p>
       </div>
 
-      <div class="tester-shell reveal window-mockup">
-        <div class="window-header">
-          <div class="window-dots">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-          </div>
-          <span class="window-title">Playground — Monatendard Live Editor</span>
-        </div>
-
-        <div class="tester-toolbar" aria-label="폰트 미리보기 설정">
-          <label class="control">
+      <div class="tester">
+        <div class="tester-toolbar" aria-label="미리보기 설정">
+          <label class="field">
             <span>굵기</span>
             <select id="weight-control">
               <option value="200">ExtraLight 200</option>
@@ -162,61 +106,31 @@
               <option value="800">ExtraBold 800</option>
             </select>
           </label>
-
-          <label class="control control-range">
-            <span>크기 <output id="size-output" for="size-control">24px</output></span>
-            <input id="size-control" type="range" min="14" max="48" value="24">
+          <label class="field field-range">
+            <span>크기 <output id="size-output" for="size-control">18px</output></span>
+            <input id="size-control" type="range" min="12" max="48" value="18">
           </label>
-
-          <label class="control control-range">
-            <span>줄간격 <output id="lineheight-output" for="lineheight-control">1.7</output></span>
-            <input id="lineheight-control" type="range" min="1.2" max="2.4" step="0.1" value="1.7">
+          <label class="field field-range">
+            <span>줄 간격 <output id="lineheight-output" for="lineheight-control">1.6</output></span>
+            <input id="lineheight-control" type="range" min="1.2" max="2.4" step="0.1" value="1.6">
           </label>
-
-          <div class="control control-buttons">
-            <span>배경 테마</span>
-            <div class="segmented" role="group" aria-label="미리보기 배경">
-              <button class="theme-button is-active" type="button" data-theme-value="dark" aria-pressed="true">Dark</button>
-              <button class="theme-button" type="button" data-theme-value="light" aria-pressed="false">Light</button>
-            </div>
-          </div>
-
-          <div class="toolbar-switches">
-            <label class="switch-control">
-              <input id="linenumbers-control" type="checkbox" checked>
-              <span>줄번호</span>
-            </label>
-            <label class="switch-control">
-              <input id="italic-control" type="checkbox">
-              <span>Italic</span>
-            </label>
-            <label class="switch-control">
-              <input id="ligature-control" type="checkbox" checked>
-              <span>Ligature</span>
-            </label>
+          <div class="tester-checks">
+            <label class="check"><input id="linenumbers-control" type="checkbox" checked><span>줄 번호</span></label>
+            <label class="check"><input id="italic-control" type="checkbox"><span>Italic</span></label>
+            <label class="check"><input id="ligature-control" type="checkbox" checked><span>합자</span></label>
           </div>
         </div>
 
-        <div class="sample-presets" aria-label="예제 문장 선택">
-          <span class="preset-label">샘플 텍스트:</span>
-          <button class="preset-button is-active" type="button" data-sample="code" aria-pressed="true">Code</button>
-          <button class="preset-button" type="button" data-sample="korean" aria-pressed="false">한글 혼용</button>
-          <button class="preset-button" type="button" data-sample="ligature" aria-pressed="false">Ligature</button>
-          <button class="preset-button" type="button" data-sample="nerd" aria-pressed="false">Nerd Font</button>
+        <div class="tester-presets" role="group" aria-label="예제 문장">
+          <button class="chip is-active" type="button" data-sample="code" aria-pressed="true">코드</button>
+          <button class="chip" type="button" data-sample="korean" aria-pressed="false">한글 섞인 문장</button>
+          <button class="chip" type="button" data-sample="ligature" aria-pressed="false">합자</button>
+          <button class="chip" type="button" data-sample="table" aria-pressed="false">표 정렬</button>
         </div>
 
-        <div class="tester-editor-wrapper show-line-numbers">
+        <div class="tester-editor show-line-numbers">
           <div id="line-gutter" class="line-gutter" aria-hidden="true"></div>
-          <div
-            id="font-tester"
-            class="font-tester"
-            contenteditable="true"
-            role="textbox"
-            aria-multiline="true"
-            aria-label="폰트 미리보기 입력"
-            spellcheck="false"
-            data-theme="dark"
-          >public User 사용자조회(String userId) {
+          <div id="font-tester" class="font-tester" contenteditable="true" role="textbox" aria-multiline="true" aria-label="글꼴 미리보기 입력" spellcheck="false">public User 사용자조회(String userId) {
     // 데이터베이스에서 사용자 정보를 불러옵니다.
     if (connection == null) {
         throw new IllegalStateException("연결 정보를 확인하세요.");
@@ -224,315 +138,201 @@
     return repository.findById(userId);
 }</div>
         </div>
-        <p class="tester-caption"><span>Monatendard v0.3.0</span><span>실제 웹폰트 WOFF2로 렌더링 중</span></p>
       </div>
     </section>
 
-    <!-- Quick Setup (Installation Guide) Section [신설] -->
-    <section class="quick-setup reveal" id="setup" aria-labelledby="setup-title">
-      <div class="setup-head">
-        <p class="section-kicker">Quick setup guide</p>
-        <h2 id="setup-title">에디터별 설정을<br>바로 복사하세요.</h2>
-        <p>에디터 및 터미널 환경에 맞는 설정을 복사해 바로 사용할 수 있습니다.</p>
+    <!-- 설계: 셀 · 합자 · Nerd -->
+    <section class="section" id="design" aria-labelledby="design-title">
+      <div class="section-head">
+        <h2 id="design-title">설계</h2>
+        <p>고정폭 글꼴에서 한글이 어긋나지 않도록 세 가지를 정했습니다.</p>
       </div>
 
-      <div class="setup-tabs-wrapper window-mockup">
-        <div class="setup-nav" role="tablist" aria-label="에디터 선택 탭">
-          <button class="setup-tab is-active" role="tab" aria-selected="true" aria-controls="tab-vscode" id="btn-vscode" data-tab="vscode">
-            <span>VS Code</span>
-          </button>
-          <button class="setup-tab" role="tab" aria-selected="false" aria-controls="tab-jetbrains" id="btn-jetbrains" data-tab="jetbrains" tabindex="-1">
-            <span>JetBrains</span>
-          </button>
-          <button class="setup-tab" role="tab" aria-selected="false" aria-controls="tab-winterm" id="btn-winterm" data-tab="winterm" tabindex="-1">
-            <span>Windows Terminal</span>
-          </button>
-          <button class="setup-tab" role="tab" aria-selected="false" aria-controls="tab-neovim" id="btn-neovim" data-tab="neovim" tabindex="-1">
-            <span>Neovim</span>
-          </button>
-        </div>
-
-        <div class="setup-content">
-          <!-- VS Code -->
-          <div class="setup-panel is-active" id="tab-vscode" role="tabpanel" aria-labelledby="btn-vscode">
-            <div class="code-block-wrapper">
-              <div class="code-block-header">
-                <span>settings.json</span>
-                <button class="copy-code-btn" type="button" data-copy-target="code-vscode">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                  <span>코드 복사</span>
-                </button>
-              </div>
-              <pre><code id="code-vscode">{
-  "editor.fontFamily": "Monatendard, Consolas, monospace",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 14,
-  "editor.lineHeight": 1.6
-}</code></pre>
-            </div>
-            <p class="setup-note">💡 VS Code 설정 파일(<code>Ctrl + Shift + P</code> &rarr; <i>Preferences: Open User Settings (JSON)</i>)에 위 구문을 추가하세요.</p>
-          </div>
-
-          <!-- JetBrains -->
-          <div class="setup-panel" id="tab-jetbrains" role="tabpanel" aria-labelledby="btn-jetbrains" hidden>
-            <div class="code-block-wrapper">
-              <div class="code-block-header">
-                <span>Font Settings (Preferences/Settings &rarr; Editor &rarr; Font)</span>
-                <button class="copy-code-btn" type="button" data-copy-target="code-jetbrains">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                  <span>설정 복사</span>
-                </button>
-              </div>
-              <pre><code id="code-jetbrains">Font: Monatendard
-Enable ligatures: Checked</code></pre>
-            </div>
-            <p class="setup-note">💡 IntelliJ / WebStorm 설정 창에서 <b>Font</b> 항목에 <code>Monatendard</code>를 지정하고 <b>Enable ligatures</b>를 체크하세요.</p>
-          </div>
-
-          <!-- Windows Terminal -->
-          <div class="setup-panel" id="tab-winterm" role="tabpanel" aria-labelledby="btn-winterm" hidden>
-            <div class="code-block-wrapper">
-              <div class="code-block-header">
-                <span>settings.json (profiles.defaults)</span>
-                <button class="copy-code-btn" type="button" data-copy-target="code-winterm">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                  <span>코드 복사</span>
-                </button>
-              </div>
-              <pre><code id="code-winterm">"font": {
-    "face": "Monatendard Nerd Font Mono",
-    "size": 11
-}</code></pre>
-            </div>
-            <p class="setup-note">💡 Powerline 및 Nerd Font 아이콘을 사용하는 터미널에는 <code>Monatendard Nerd Font Mono</code> 패밀리를 권장합니다.</p>
-          </div>
-
-          <!-- Neovim -->
-          <div class="setup-panel" id="tab-neovim" role="tabpanel" aria-labelledby="btn-neovim" hidden>
-            <div class="code-block-wrapper">
-              <div class="code-block-header">
-                <span>init.lua (GUI Neovim)</span>
-                <button class="copy-code-btn" type="button" data-copy-target="code-neovim">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                  <span>코드 복사</span>
-                </button>
-              </div>
-              <pre><code id="code-neovim">vim.opt.guifont = "Monatendard_Nerd_Font_Mono:h12"</code></pre>
-            </div>
-            <p class="setup-note">💡 Neovide 또는 VimR 같은 GUI Neovim 환경에서 위 구문을 추가하세요.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Alignment Section -->
-    <section class="alignment" id="design" aria-labelledby="alignment-title">
-      <div class="alignment-copy reveal">
-        <p class="section-kicker">Exact 1:2 rhythm</p>
-        <h2 id="alignment-title">AA와 가는<br>같은 너비입니다.</h2>
-        <p>
-          한글 한 글자의 advance를 영문 두 칸과 정확히 맞췄습니다.
-          터미널의 커서, 선택 영역, 들여쓰기와 표가 흐트러지지 않습니다.
-        </p>
-      </div>
-
-      <div class="cell-stage reveal" aria-label="영문 두 글자와 한글 한 글자의 폭 비교">
-        <div class="cell-row cell-row-label" aria-hidden="true">
-          <span>1 cell</span><span>1 cell</span><span>2 cells</span>
-        </div>
-        <div class="cell-row cell-row-glyphs">
-          <span class="one-cell">A</span>
-          <span class="one-cell">A</span>
-          <span class="two-cells">가</span>
-        </div>
-        <div class="cell-ruler" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
-        </div>
-        <p class="cell-equation">1240 + 1240 = 2480 units</p>
-      </div>
-    </section>
-
-    <!-- Ligature Section -->
-    <section class="ligature-stage reveal" aria-labelledby="ligature-title">
-      <p class="section-kicker">Coding expression</p>
-      <h2 id="ligature-title">기호도 문장의 일부니까.</h2>
-      <p class="ligature-line" aria-label="코딩 합자 예시">!=  ===  =&gt;  -&gt;  &lt;=  &gt;=  ::  ...</p>
-      <p class="ligature-note">
-        Monaspace의 <code>calt</code>와 문맥적 표현을 보존해 연산자의 흐름을 또렷하게 읽습니다.
-      </p>
-    </section>
-
-    <!-- Nerd Stage Section (Nerd Font Grid 추가) -->
-    <section class="nerd-stage reveal" id="nerd" aria-labelledby="nerd-title">
-      <div class="nerd-copy">
-        <p class="section-kicker">Nerd / Powerline</p>
-        <h2 id="nerd-title">프롬프트에도<br>표정이 필요하니까.</h2>
-        <p>
-          Nerd 패키지는 <code>Monatendard Nerd Font Mono</code>에 누락된 아이콘 10,352개를
-          한 칸 폭으로 더합니다. 아래에서는 일반판에도 포함된 대표 Powerline 글리프를
-          미리 보고 복사할 수 있습니다.
-        </p>
-      </div>
-
-      <div class="nerd-demo">
-        <div class="nerd-terminal window-mockup" aria-label="Powerline 기호를 사용한 터미널 프롬프트 예시">
-          <div class="window-header">
-            <div class="window-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-            </div>
-            <span class="window-title">bash — 80x24</span>
-          </div>
-          <div class="window-body">
-            <p class="terminal-label">~/projects/monatendard</p>
-            <p class="terminal-prompt">
-              <span class="prompt-branch"><span aria-hidden="true">&#xE0A0;</span> main</span><span class="prompt-divider prompt-divider-acid" aria-hidden="true">&#xE0B0;</span><span class="prompt-path"> ~/Monatendard </span><span class="prompt-divider prompt-divider-dark" aria-hidden="true">&#xE0B0;</span><span class="prompt-command"> git status</span>
-            </p>
-            <p class="terminal-result">On branch main · working tree clean</p>
-          </div>
-        </div>
-
-        <!-- Nerd / Powerline Icons Preview Grid -->
-        <div class="nerd-icon-grid" aria-label="기본 탑재 Powerline 기호 모음 (클릭 시 복사)">
-          <button class="icon-card" type="button" data-glyph="&#xE0A0;" data-hex="U+E0A0" title="Git Branch (클릭하여 복사)">
-            <span class="icon-char">&#xE0A0;</span>
-            <span class="icon-name">Branch (E0A0)</span>
-          </button>
-          <button class="icon-card" type="button" data-glyph="&#xE0A1;" data-hex="U+E0A1" title="Line Number (클릭하여 복사)">
-            <span class="icon-char">&#xE0A1;</span>
-            <span class="icon-name">Line No (E0A1)</span>
-          </button>
-          <button class="icon-card" type="button" data-glyph="&#xE0A2;" data-hex="U+E0A2" title="Lock (클릭하여 복사)">
-            <span class="icon-char">&#xE0A2;</span>
-            <span class="icon-name">Lock (E0A2)</span>
-          </button>
-          <button class="icon-card" type="button" data-glyph="&#xE0A3;" data-hex="U+E0A3" title="Column (클릭하여 복사)">
-            <span class="icon-char">&#xE0A3;</span>
-            <span class="icon-name">Column (E0A3)</span>
-          </button>
-          <button class="icon-card" type="button" data-glyph="&#xE0B0;" data-hex="U+E0B0" title="Right Arrow (클릭하여 복사)">
-            <span class="icon-char">&#xE0B0;</span>
-            <span class="icon-name">Arrow R (E0B0)</span>
-          </button>
-          <button class="icon-card" type="button" data-glyph="&#xE0B1;" data-hex="U+E0B1" title="Right Divider (클릭하여 복사)">
-            <span class="icon-char">&#xE0B1;</span>
-            <span class="icon-name">Divider R (E0B1)</span>
-          </button>
-          <button class="icon-card" type="button" data-glyph="&#xE0B2;" data-hex="U+E0B2" title="Left Arrow (클릭하여 복사)">
-            <span class="icon-char">&#xE0B2;</span>
-            <span class="icon-name">Arrow L (E0B2)</span>
-          </button>
-          <button class="icon-card" type="button" data-glyph="&#xE0B3;" data-hex="U+E0B3" title="Left Divider (클릭하여 복사)">
-            <span class="icon-char">&#xE0B3;</span>
-            <span class="icon-name">Divider L (E0B3)</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Facts Section -->
-    <section class="facts section-light" aria-label="Monatendard 주요 특징">
-      <div class="fact reveal">
-        <span class="fact-value">0.620em</span>
-        <h3>Latin cell</h3>
-        <p>Monaspace Neon의 원래 셀 폭과 윤곽, 힌팅을 그대로 씁니다.</p>
-      </div>
-      <div class="fact reveal">
-        <span class="fact-value">2×</span>
-        <h3>Korean advance</h3>
-        <p>한글 한 글자는 영문 두 칸과 정확히 일치합니다.</p>
-      </div>
-      <div class="fact reveal">
-        <span class="fact-value">14</span>
-        <h3>Styles</h3>
-        <p>ExtraLight부터 ExtraBold까지, Italic을 함께 제공합니다.</p>
-      </div>
-    </section>
-
-    <!-- Download Section -->
-    <section class="download" id="download" aria-labelledby="download-title">
-      <div class="download-copy reveal">
-        <p class="section-kicker">v0.3.0</p>
-        <h2 id="download-title">오늘부터<br>코드에 적용하세요.</h2>
-        <p>
-          에디터에는 일반판을, Nerd 아이콘이 필요한 터미널에는
-          <code>Monatendard Nerd Font Mono</code>를 선택하세요.
-          두 패밀리는 함께 설치할 수 있습니다.
-          macOS에서는 Homebrew로 설치하고 업데이트할 수 있습니다.
-        </p>
-      </div>
-
-      <div class="download-panel reveal">
-        <a class="download-main" href="https://github.com/younjungpark/Monatendard/releases/download/v0.3.0/Monatendard-v0.3.0-Desktop.zip">
-          <span>
-            <strong>Desktop package</strong>
-            <small>TTF 14종 · 설치/제거 스크립트 · 18.1 MB</small>
-          </span>
-          <span class="download-arrow" aria-hidden="true">↓</span>
-        </a>
-        <a class="download-secondary" href="https://github.com/younjungpark/Monatendard/releases/download/v0.3.0/Monatendard-v0.3.0-Desktop-Nerd.zip">
-          <span>
-            <strong>Desktop Nerd package</strong>
-            <small>TTF 14종 · Nerd 아이콘 10,352개 · 37.0 MB</small>
-          </span>
-          <span aria-hidden="true">↓</span>
-        </a>
-        <a class="download-secondary" href="https://github.com/younjungpark/Monatendard/releases/download/v0.3.0/Monatendard-v0.3.0-Web.zip">
-          <span>
-            <strong>Web package</strong>
-            <small>WOFF2 14종 · CSS · 12.0 MB</small>
-          </span>
-          <span aria-hidden="true">↓</span>
-        </a>
-
-        <ol class="install-steps">
-          <li><span class="step-number">01</span><span class="step-copy">용도에 맞는 ZIP 파일의 압축을 풉니다.</span></li>
-          <li><span class="step-number">02</span><span class="step-copy">패키지에 포함된 설치 스크립트(<code>Install-Monatendard.ps1</code>)를 실행합니다.</span></li>
-          <li><span class="step-number">03</span><span class="step-copy">앱에서 해당 Monatendard 패밀리를 선택합니다.</span></li>
-        </ol>
-
-        <div class="homebrew">
-          <div class="homebrew-head">
-            <span>macOS · Homebrew</span>
-            <button class="copy-small-btn copy-code-btn" type="button" data-copy-target="brew-commands" data-copy-message="Homebrew 설치 명령이 복사되었습니다!" title="Homebrew 설치 명령 복사">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              <span>복사</span>
-            </button>
-          </div>
-          <pre id="brew-commands"><code>brew tap younjungpark/monatendard https://github.com/younjungpark/Monatendard.git
-brew install --cask younjungpark/monatendard/font-monatendard</code></pre>
+      <div class="design-grid">
+        <article class="design-item">
+          <h3>한글 한 글자 = 영문 두 칸</h3>
           <p>
-            <code>tap</code>은 처음 한 번만 실행합니다. Nerd판은 <code>font-monatendard-nerd-font</code>,
-            업데이트는 <code>brew upgrade --cask font-monatendard</code>입니다.
+            영문 셀은 0.620em, 한글은 그 두 배인 1.240em입니다.
+            커서, 선택 영역, 들여쓰기, 표가 한글이 섞여도 같은 열에 맞습니다.
+          </p>
+          <div class="cell-demo" aria-label="영문 두 글자와 한글 한 글자의 폭 비교">
+            <div class="cell-row">
+              <span class="cell">A</span><span class="cell">A</span><span class="cell cell-wide">가</span>
+            </div>
+            <div class="cell-labels" aria-hidden="true">
+              <span>1240</span><span>1240</span><span>2480</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="design-item">
+          <h3>영문과 기호는 Monaspace 그대로</h3>
+          <p>
+            영문 윤곽과 힌팅, 합자(<code>rlig</code>)와 문맥 대체(<code>calt</code>)를 손대지 않았습니다.
+            편집기에서 합자를 끄면 기호가 한 글자씩 보입니다.
+          </p>
+          <div class="liga-demo">
+            <div class="liga-row"><span class="liga-label">켬</span><code class="liga-on">!= === =&gt; -&gt; &lt;= &gt;= :: ...</code></div>
+            <div class="liga-row"><span class="liga-label">끔</span><code class="liga-off">!= === =&gt; -&gt; &lt;= &gt;= :: ...</code></div>
+          </div>
+        </article>
+
+        <article class="design-item">
+          <h3>Nerd 아이콘도 한 칸</h3>
+          <p>
+            Nerd판(<code>Monatendard Nerd Font Mono</code>)은 아이콘 10,352개를 영문 한 칸 폭으로 더합니다.
+            아래 Powerline 기호는 일반판에도 들어 있습니다. 누르면 복사됩니다.
+          </p>
+          <p class="prompt-demo" aria-label="Powerline 기호를 쓴 프롬프트 예시"><span class="pl-a"><span aria-hidden="true">&#xE0A0;</span> main </span><span class="pl-a-end" aria-hidden="true">&#xE0B0;</span><span class="pl-b"> ~/작업/글꼴 </span><span class="pl-b-end" aria-hidden="true">&#xE0B0;</span></p>
+          <div class="glyph-grid" aria-label="Powerline 기호 (누르면 복사)">
+            <button class="glyph" type="button" data-glyph="&#xE0A0;" data-hex="U+E0A0" aria-label="Branch U+E0A0 복사"><span aria-hidden="true">&#xE0A0;</span><small>E0A0</small></button>
+            <button class="glyph" type="button" data-glyph="&#xE0A1;" data-hex="U+E0A1" aria-label="Line number U+E0A1 복사"><span aria-hidden="true">&#xE0A1;</span><small>E0A1</small></button>
+            <button class="glyph" type="button" data-glyph="&#xE0A2;" data-hex="U+E0A2" aria-label="Lock U+E0A2 복사"><span aria-hidden="true">&#xE0A2;</span><small>E0A2</small></button>
+            <button class="glyph" type="button" data-glyph="&#xE0A3;" data-hex="U+E0A3" aria-label="Column U+E0A3 복사"><span aria-hidden="true">&#xE0A3;</span><small>E0A3</small></button>
+            <button class="glyph" type="button" data-glyph="&#xE0B0;" data-hex="U+E0B0" aria-label="Right arrow U+E0B0 복사"><span aria-hidden="true">&#xE0B0;</span><small>E0B0</small></button>
+            <button class="glyph" type="button" data-glyph="&#xE0B1;" data-hex="U+E0B1" aria-label="Right divider U+E0B1 복사"><span aria-hidden="true">&#xE0B1;</span><small>E0B1</small></button>
+            <button class="glyph" type="button" data-glyph="&#xE0B2;" data-hex="U+E0B2" aria-label="Left arrow U+E0B2 복사"><span aria-hidden="true">&#xE0B2;</span><small>E0B2</small></button>
+            <button class="glyph" type="button" data-glyph="&#xE0B3;" data-hex="U+E0B3" aria-label="Left divider U+E0B3 복사"><span aria-hidden="true">&#xE0B3;</span><small>E0B3</small></button>
+          </div>
+        </article>
+      </div>
+
+      <dl class="spec-list">
+        <div><dt>영문</dt><dd>Monaspace Neon 1.400</dd></div>
+        <div><dt>한글</dt><dd>Pretendard 1.3.9</dd></div>
+        <div><dt>스타일</dt><dd>ExtraLight–ExtraBold 7종 × Italic = 14종</dd></div>
+        <div><dt>Nerd 아이콘</dt><dd>Nerd Fonts Symbols Only 3.4.0</dd></div>
+      </dl>
+    </section>
+
+    <!-- 설치: 릴리스 값(버전·링크·크기·체크섬)은 이 섹션에만 둔다. RELEASING.md 참고. -->
+    <section class="section" id="install" aria-labelledby="install-title">
+      <div class="section-head">
+        <h2 id="install-title"><span id="download" class="anchor-alias"></span>설치</h2>
+        <p>
+          v0.3.0 · 편집기에는 일반판, Nerd 아이콘이 필요한 터미널에는 Nerd판을 쓰세요.
+          두 패밀리는 함께 설치해도 됩니다.
+        </p>
+      </div>
+
+      <div class="tabs" data-tabs>
+        <div class="tab-list" role="tablist" aria-label="운영체제">
+          <button class="tab" role="tab" id="os-tab-win" aria-controls="os-win" aria-selected="true">Windows</button>
+          <button class="tab" role="tab" id="os-tab-mac" aria-controls="os-mac" aria-selected="false" tabindex="-1">macOS</button>
+          <button class="tab" role="tab" id="os-tab-web" aria-controls="os-web" aria-selected="false" tabindex="-1">웹폰트</button>
+        </div>
+
+        <div class="tab-panel" role="tabpanel" id="os-win" aria-labelledby="os-tab-win">
+          <ul class="downloads">
+            <li>
+              <a href="https://github.com/younjungpark/Monatendard/releases/download/v0.3.0/Monatendard-v0.3.0-Desktop.zip">
+                <strong>Monatendard</strong><span>TTF 14종 · 18.1 MB</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/younjungpark/Monatendard/releases/download/v0.3.0/Monatendard-v0.3.0-Desktop-Nerd.zip">
+                <strong>Monatendard Nerd Font Mono</strong><span>TTF 14종 · Nerd 아이콘 포함 · 37.0 MB</span>
+              </a>
+            </li>
+          </ul>
+          <ol class="steps">
+            <li>ZIP 파일의 압축을 풉니다.</li>
+            <li>PowerShell에서 <code>Install-Monatendard.ps1</code>을 실행합니다. 현재 사용자에게만 설치되며 관리자 권한은 필요 없습니다.</li>
+            <li>편집기나 터미널을 다시 열고 글꼴을 고릅니다. 제거할 때는 같은 폴더의 <code>Uninstall-Monatendard.ps1</code>을 실행합니다.</li>
+          </ol>
+          <details class="checksums">
+            <summary>SHA256 체크섬</summary>
+            <dl>
+              <div><dt>Desktop</dt><dd><code>4266d47a4e2605fb9aeaa07b7b197d74ff36174510fbdb8ae4e2b922d1691fc3</code></dd></div>
+              <div><dt>Desktop-Nerd</dt><dd><code>2a1f81077f6b8306801587c842eac64666bd01b7705c36490de3603b831aa0cb</code></dd></div>
+              <div><dt>Web</dt><dd><code>d234f25b5bb299f26504d2693a2d0070bb6f971c4b14f022b93c80466dd533c2</code></dd></div>
+            </dl>
+            <p><a href="https://github.com/younjungpark/Monatendard/releases/download/v0.3.0/SHA256SUMS.txt">SHA256SUMS.txt</a></p>
+          </details>
+        </div>
+
+        <div class="tab-panel" role="tabpanel" id="os-mac" aria-labelledby="os-tab-mac" hidden>
+          <div class="code-block">
+            <div class="code-head"><span>터미널</span><button class="copy" type="button" data-copy-target="code-brew">복사</button></div>
+            <pre><code id="code-brew">brew tap younjungpark/monatendard https://github.com/younjungpark/Monatendard.git
+brew install --cask younjungpark/monatendard/font-monatendard
+brew install --cask younjungpark/monatendard/font-monatendard-nerd-font</code></pre>
+          </div>
+          <p class="note">
+            <code>tap</code>은 처음 한 번만 실행합니다. 필요한 패밀리만 설치해도 됩니다.
+            업데이트는 <code>brew upgrade --cask font-monatendard font-monatendard-nerd-font</code>입니다.
           </p>
         </div>
 
-        <div class="checksum">
-          <span>Desktop SHA256</span>
-          <code id="sha256-text">4266d47a4e2605fb9aeaa07b7b197d74ff36174510fbdb8ae4e2b922d1691fc3</code>
-          <button id="copy-checksum-btn" class="copy-small-btn" type="button" data-checksum="4266d47a4e2605fb9aeaa07b7b197d74ff36174510fbdb8ae4e2b922d1691fc3" title="Desktop package SHA256 복사">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span>복사</span>
-          </button>
-          <a href="https://github.com/younjungpark/Monatendard/releases/download/v0.3.0/SHA256SUMS.txt">전체 체크섬</a>
+        <div class="tab-panel" role="tabpanel" id="os-web" aria-labelledby="os-tab-web" hidden>
+          <ul class="downloads">
+            <li>
+              <a href="https://github.com/younjungpark/Monatendard/releases/download/v0.3.0/Monatendard-v0.3.0-Web.zip">
+                <strong>Monatendard Web</strong><span>WOFF2 14종 · CSS · 12.0 MB</span>
+              </a>
+            </li>
+          </ul>
+          <div class="code-block">
+            <div class="code-head"><span>HTML · CSS</span><button class="copy" type="button" data-copy-target="code-web">복사</button></div>
+            <pre><code id="code-web">&lt;link rel="stylesheet" href="/fonts/monatendard/monatendard.css"&gt;
+
+code, pre { font-family: "Monatendard", monospace; }</code></pre>
+          </div>
+          <p class="note">압축을 푼 폴더를 그대로 올리고 <code>monatendard.css</code>를 불러옵니다. 경로는 올린 위치에 맞게 바꾸세요.</p>
+        </div>
+      </div>
+
+      <h3 class="subhead">편집기 설정</h3>
+      <div class="tabs" data-tabs>
+        <div class="tab-list" role="tablist" aria-label="편집기">
+          <button class="tab" role="tab" id="ed-tab-vscode" aria-controls="ed-vscode" aria-selected="true">VS Code</button>
+          <button class="tab" role="tab" id="ed-tab-jetbrains" aria-controls="ed-jetbrains" aria-selected="false" tabindex="-1">JetBrains</button>
+          <button class="tab" role="tab" id="ed-tab-wt" aria-controls="ed-wt" aria-selected="false" tabindex="-1">Windows Terminal</button>
+          <button class="tab" role="tab" id="ed-tab-nvim" aria-controls="ed-nvim" aria-selected="false" tabindex="-1">Neovim</button>
+        </div>
+
+        <div class="tab-panel" role="tabpanel" id="ed-vscode" aria-labelledby="ed-tab-vscode">
+          <div class="code-block">
+            <div class="code-head"><span>settings.json</span><button class="copy" type="button" data-copy-target="code-vscode">복사</button></div>
+            <pre><code id="code-vscode">"editor.fontFamily": "Monatendard, monospace",
+"editor.fontLigatures": true</code></pre>
+          </div>
+          <p class="note">명령 팔레트에서 <i>Preferences: Open User Settings (JSON)</i>을 열고 추가합니다. 글자 크기와 줄 간격은 쓰던 값을 그대로 두면 됩니다.</p>
+        </div>
+
+        <div class="tab-panel" role="tabpanel" id="ed-jetbrains" aria-labelledby="ed-tab-jetbrains" hidden>
+          <p class="note"><b>Settings → Editor → Font</b>에서 Font를 <code>Monatendard</code>로 고르고 <b>Enable ligatures</b>를 켭니다. IntelliJ IDEA, WebStorm 등 모든 JetBrains IDE가 같습니다.</p>
+        </div>
+
+        <div class="tab-panel" role="tabpanel" id="ed-wt" aria-labelledby="ed-tab-wt" hidden>
+          <div class="code-block">
+            <div class="code-head"><span>settings.json · profiles.defaults</span><button class="copy" type="button" data-copy-target="code-wt">복사</button></div>
+            <pre><code id="code-wt">"font": {
+    "face": "Monatendard Nerd Font Mono"
+}</code></pre>
+          </div>
+          <p class="note">프롬프트에 Nerd 아이콘을 쓰지 않으면 <code>Monatendard</code>를 써도 됩니다. 크기를 바꾸려면 <code>"size"</code>를 더하세요. 단위는 pt이고 기본값은 12입니다.</p>
+        </div>
+
+        <div class="tab-panel" role="tabpanel" id="ed-nvim" aria-labelledby="ed-tab-nvim" hidden>
+          <div class="code-block">
+            <div class="code-head"><span>init.lua</span><button class="copy" type="button" data-copy-target="code-nvim">복사</button></div>
+            <pre><code id="code-nvim">vim.opt.guifont = "Monatendard Nerd Font Mono:h12"</code></pre>
+          </div>
+          <p class="note">Neovide 같은 GUI 클라이언트용 설정입니다. <code>h12</code>는 글자 크기(pt)입니다. 터미널에서 쓰는 Neovim은 터미널의 글꼴 설정을 따릅니다.</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div>
-      <strong>Monatendard</strong>
-      <p>Monaspace의 표현력과 Pretendard의 한글 가독성을 잇는 코딩 글꼴.</p>
-    </div>
-    <div class="footer-links">
-      <a href="https://github.com/younjungpark/Monatendard" target="_blank" rel="noopener">GitHub Repository</a>
-      <a href="./legal/OFL-1.1.txt">SIL OFL 1.1</a>
-      <a href="./legal/NERD_FONTS_LICENSE.txt">Nerd Fonts MIT</a>
-      <a href="./legal/THIRD_PARTY_NOTICES.md">Third-party notices</a>
-    </div>
-    <p class="copyright">© 2026 Monatendard contributors.</p>
+    <p>Monatendard는 SIL Open Font License 1.1로 배포합니다. 상업적 사용과 재배포가 자유롭습니다.</p>
+    <ul class="footer-links">
+      <li><a href="https://github.com/younjungpark/Monatendard" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="./legal/OFL-1.1.txt">SIL OFL 1.1</a></li>
+      <li><a href="./legal/NERD_FONTS_LICENSE.txt">Nerd Fonts MIT</a></li>
+      <li><a href="./legal/THIRD_PARTY_NOTICES.md">Third-party notices</a></li>
+    </ul>
   </footer>
 
   <script src="./script.js"></script>
