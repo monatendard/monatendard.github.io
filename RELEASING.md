@@ -15,3 +15,12 @@
    ```
 5. 영문 셀 폭, 기반 글꼴 버전, Nerd 아이콘 수가 바뀌었다면 설계 섹션과 `spec-list`도 고칩니다.
 6. `README.md`의 버전을 바꾸고 main에 푸시합니다. 1분 안에 GitHub Pages에 배포됩니다.
+
+## OG 이미지 다시 만들기
+
+원본은 `assets/og/og.html`입니다. 저장소 폴더에서 `python -m http.server 8765`를 켠 뒤 찍습니다.
+
+```sh
+chrome --headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 \
+  --virtual-time-budget=8000 --screenshot=assets/og-image.png http://localhost:8765/assets/og/og.html
+```

@@ -1,0 +1,96 @@
+<!doctype html>
+<!-- OG 이미지 원본. 다시 만들 때는 RELEASING.md의 명령으로 1200×630 PNG를 찍는다. -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../fonts/monatendard.css">
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --surface: #f2f2f0;
+      --ink: #18181b;
+      --muted: #5c5c63;
+      --line: #dcdcd8;
+      --grid: rgba(37, 87, 201, 0.22);
+      --wide: rgba(37, 87, 201, 0.08);
+      --tok-k: #8a3ab9;
+      --tok-f: #2557c9;
+      --tok-s: #2f7d32;
+      --tok-n: #b4530f;
+      --tok-c: #737379;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+
+    body {
+      display: grid;
+      grid-template-columns: 470px 1fr;
+      align-items: center;
+      gap: 56px;
+      padding: 0 72px;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Pretendard Variable", sans-serif;
+      word-break: keep-all;
+    }
+
+    .brand { font-family: "Monatendard", monospace; font-size: 26px; font-weight: 600; }
+
+    h1 { margin: 28px 0 22px; font-size: 64px; font-weight: 750; line-height: 1.25; letter-spacing: -0.02em; }
+
+    p { margin: 0; color: var(--muted); font-size: 24px; line-height: 1.55; }
+
+    .cells { display: flex; margin-bottom: 28px; font-family: "Monatendard", monospace; font-size: 64px; line-height: 1.3; }
+
+    .cell { width: calc(64px * 0.62); border: 1px solid var(--grid); border-left-width: 0; text-align: center; }
+
+    .cell:first-child { border-left-width: 1px; }
+
+    .wide { width: calc(64px * 1.24); background: var(--wide); }
+
+    pre {
+      margin: 0;
+      padding: 26px 24px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      font-family: "Monatendard", monospace;
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    /* 1ch = 영문 셀 폭(0.620em) */
+    pre code {
+      display: block;
+      background-image: repeating-linear-gradient(to right, var(--grid) 0 1px, transparent 1px 1ch);
+    }
+
+    .k { color: var(--tok-k); }
+    .f { color: var(--tok-f); }
+    .s { color: var(--tok-s); }
+    .n { color: var(--tok-n); }
+    .c { color: var(--tok-c); font-style: italic; }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="brand">Monatendard</div>
+    <h1>영문은 한 칸,<br>한글은 두 칸.</h1>
+    <p>Monaspace Neon과 Pretendard를<br>한 격자에 맞춘 한글 코딩 글꼴</p>
+  </div>
+  <div>
+    <div class="cells"><span class="cell">A</span><span class="cell">A</span><span class="cell wide">가</span></div>
+<pre><code><span class="c">// 이름을 화면에 맞춰 줄인다</span>
+<span class="k">function</span> <span class="f">줄이기</span>(s, max = <span class="n">8</span>) {
+  <span class="k">if</span> (s.length &lt;= max) <span class="k">return</span> s;
+  <span class="k">return</span> s.slice(<span class="n">0</span>, max - <span class="n">1</span>) + <span class="s">"…"</span>;
+}
+
+<span class="f">줄이기</span>(<span class="s">"Monatendard"</span>); <span class="c">// 영문</span>
+<span class="f">줄이기</span>(<span class="s">"모나텐다드"</span>);  <span class="c">// 한글</span></code></pre>
+  </div>
+</body>
+</html>
