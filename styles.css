@@ -570,22 +570,6 @@ button, select, input { font: inherit; color: inherit; }
 
 .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0; padding: 0; list-style: none; }
 
-/* 섹션 단위 스크롤: 넓고 충분히 높은 화면에서만 켠다. 휠 한 번에 한 섹션씩 넘기는 건 script.js가 맡고,
-   CSS 스냅은 키보드·스크롤바로 움직인 뒤 가까운 섹션에 맞춰 주는 정도(proximity)로만 쓴다.
-   이 미디어 쿼리는 script.js의 SECTION_SCROLL_QUERY와 같아야 한다. */
-@media (min-width: 880px) and (min-height: 640px) and (prefers-reduced-motion: no-preference) {
-  html { scroll-snap-type: y proximity; }
-
-  .hero, .section {
-    min-height: calc(100svh - var(--header-h));
-    scroll-snap-align: start;
-  }
-
-  .hero { align-content: center; }
-
-  .section { display: flex; flex-direction: column; justify-content: center; }
-}
-
 @media (max-width: 480px) {
   .site-nav a[target="_blank"] { display: none; }
   .field-range { flex: 1 1 8rem; }
