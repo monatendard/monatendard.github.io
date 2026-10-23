@@ -70,7 +70,7 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+html { --header-h: calc(3.5rem + 1px); scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -159,9 +159,25 @@ button, select, input { font: inherit; color: inherit; }
 
 .site-nav { display: flex; align-items: center; gap: clamp(0.75rem, 2.5vw, 1.75rem); font-size: 0.9375rem; }
 
-.site-nav a { color: var(--muted); text-decoration: none; }
+.site-nav a { position: relative; color: var(--muted); text-decoration: none; transition: color 0.2s; }
 
-.site-nav a:hover { color: var(--ink); }
+.site-nav a:hover, .site-nav a[aria-current="true"] { color: var(--ink); }
+
+/* 지금 보고 있는 섹션의 메뉴에 밑줄이 펴진다. */
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.3rem;
+  left: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.site-nav a[aria-current="true"]::after { transform: scaleX(1); }
 
 .theme-toggle {
   display: grid;
@@ -553,6 +569,22 @@ button, select, input { font: inherit; color: inherit; }
 }
 
 .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0; padding: 0; list-style: none; }
+
+/* 섹션 단위 스크롤: 넓고 충분히 높은 화면에서만 켠다. 휠 한 번에 한 섹션씩 넘기는 건 script.js가 맡고,
+   CSS 스냅은 키보드·스크롤바로 움직인 뒤 가까운 섹션에 맞춰 주는 정도(proximity)로만 쓴다.
+   이 미디어 쿼리는 script.js의 SECTION_SCROLL_QUERY와 같아야 한다. */
+@media (min-width: 880px) and (min-height: 640px) and (prefers-reduced-motion: no-preference) {
+  html { scroll-snap-type: y proximity; }
+
+  .hero, .section {
+    min-height: calc(100svh - var(--header-h));
+    scroll-snap-align: start;
+  }
+
+  .hero { align-content: center; }
+
+  .section { display: flex; flex-direction: column; justify-content: center; }
+}
 
 @media (max-width: 480px) {
   .site-nav a[target="_blank"] { display: none; }

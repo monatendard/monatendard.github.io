@@ -200,6 +200,109 @@ document.querySelectorAll("[data-tabs]").forEach((container) => {
   });
 });
 
+// 헤더 메뉴에 지금 보고 있는 섹션을 표시한다. 화면 가운데 줄에 걸친 섹션이 현재 섹션이다.
+const navLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
+const spySections = ["top", ...navLinks.map((link) => link.hash.slice(1))]
+  .map((id) => document.getElementById(id))
+  .filter(Boolean);
+
+const spy = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) => {
+        if (link.hash === `#${entry.target.id}`) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    });
+  },
+  { rootMargin: "-50% 0px -50% 0px" },
+);
+
+spySections.forEach((section) => spy.observe(section));
+
+// 휠 한 번에 한 섹션씩 넘긴다. 화면보다 긴 섹션(설치)은 끝까지 평소처럼 스크롤한 뒤 넘긴다.
+const SECTION_SCROLL_QUERY = "(min-width: 880px) and (min-height: 640px) and (prefers-reduced-motion: no-preference)";
+const sectionScroll = window.matchMedia(SECTION_SCROLL_QUERY);
+// 푸터는 마지막 섹션 끝에 붙은 것으로 보고 따로 넘기지 않는다.
+const pages = Array.from(document.querySelectorAll(".hero, main > .section"));
+const header = document.querySelector(".site-header");
+let wheelLocked = false;
+let lastWheelAt = 0;
+
+function pageTop(el) {
+  const top = el.getBoundingClientRect().top + window.scrollY - header.offsetHeight;
+  return Math.min(Math.max(top, 0), document.documentElement.scrollHeight - window.innerHeight);
+}
+
+// 이동이 끝나고 관성 휠 이벤트도 잠잠해진 뒤에야 다음 이동을 받는다.
+function unlockWhenSettled() {
+  if (performance.now() - lastWheelAt < 180) {
+    setTimeout(unlockWhenSettled, 60);
+    return;
+  }
+  wheelLocked = false;
+}
+
+function scrollsInside(target, deltaY) {
+  // 코드 블록·테스터처럼 안에서 세로로 스크롤되는 요소는 그대로 둔다.
+  for (let el = target; el && el !== document.body; el = el.parentElement) {
+    if (el.scrollHeight > el.clientHeight + 1 && /auto|scroll/.test(getComputedStyle(el).overflowY)) {
+      if (deltaY > 0 ? el.scrollTop + el.clientHeight < el.scrollHeight - 1 : el.scrollTop > 0) return true;
+    }
+  }
+  return false;
+}
+
+window.addEventListener(
+  "wheel",
+  (event) => {
+    if (!sectionScroll.matches || event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+    if (scrollsInside(event.target, event.deltaY)) return;
+
+    lastWheelAt = performance.now();
+    if (wheelLocked) {
+      event.preventDefault();
+      return;
+    }
+
+    const y = window.scrollY;
+    const down = event.deltaY > 0;
+    const tops = pages.map(pageTop);
+    // 지금 화면 맨 위에 걸친 섹션
+    let index = tops.findLastIndex((top) => top <= y + 2);
+    if (index < 0) index = 0;
+    const current = pages[index];
+    const bottom = current.getBoundingClientRect().bottom;
+
+    // 긴 섹션 안에서 아직 볼 내용이 남았으면 평소처럼 스크롤한다.
+    if (down && bottom > window.innerHeight + 2) return;
+    if (!down && tops[index] < y - 2) return;
+
+    const next = down ? index + 1 : index - 1;
+    if (next < 0 || next >= pages.length) return;
+
+    event.preventDefault();
+    wheelLocked = true;
+    // 위로 갈 때 이전 섹션이 화면보다 길면 그 섹션의 끝부분으로 간다.
+    const prevTall = !down && pages[next].getBoundingClientRect().height > window.innerHeight - header.offsetHeight;
+    const target = Math.max(prevTall ? tops[index] - (window.innerHeight - header.offsetHeight) : tops[next], 0);
+    if (Math.abs(target - y) < 2) return;
+    window.scrollTo({ top: target, behavior: "smooth" });
+
+    // scrollend가 없거나 오지 않아도 1.2초 뒤에는 반드시 풀리게 한다.
+    let finished = false;
+    const done = () => {
+      if (finished) return;
+      finished = true;
+      setTimeout(unlockWhenSettled, 60);
+    };
+    window.addEventListener("scrollend", done, { once: true });
+    setTimeout(done, 1200);
+  },
+  { passive: false },
+);
+
 // macOS 방문자에게는 설치 탭을 macOS로 먼저 보여 준다.
 const platform = navigator.userAgentData?.platform ?? navigator.platform ?? "";
 if (/mac/i.test(platform)) document.querySelector("#os-tab-mac")?.click();
