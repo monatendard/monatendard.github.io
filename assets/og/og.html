@@ -6,19 +6,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="../fonts/monatendard.css">
   <style>
+    /* Link preview cards don't follow the theme, so the card is fixed to the page's dark theme colors (see styles.css). */
     :root {
-      --bg: #fafaf9;
-      --surface: #f2f2f0;
-      --ink: #18181b;
-      --muted: #5c5c63;
-      --line: #dcdcd8;
-      --grid: rgba(37, 87, 201, 0.22);
-      --wide: rgba(37, 87, 201, 0.08);
-      --tok-k: #8a3ab9;
-      --tok-f: #2557c9;
-      --tok-s: #2f7d32;
-      --tok-n: #b4530f;
-      --tok-c: #737379;
+      --bg: #111113;
+      --surface: #1a1a1d;
+      --ink: #ececee;
+      --muted: #a3a3ab;
+      --line: #2e2e33;
+      --grid: rgba(138, 176, 255, 0.24);
+      --wide: rgba(138, 176, 255, 0.10);
+      --tok-k: #d2a6ff;
+      --tok-f: #8ab0ff;
+      --tok-s: #a5d6a7;
+      --tok-n: #f5b97a;
+      --tok-c: #8e8e96;
     }
 
     * { box-sizing: border-box; }
@@ -63,8 +64,10 @@
     }
 
     /* 1ch = 영문 셀 폭(0.620em) */
+    /* The browser default stylesheet sets code to monospace, so make it inherit pre's font explicitly. */
     pre code {
       display: block;
+      font: inherit;
       background-image: repeating-linear-gradient(to right, var(--grid) 0 1px, transparent 1px 1ch);
     }
 
