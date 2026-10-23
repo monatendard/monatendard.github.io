@@ -28,6 +28,11 @@
       const saved = localStorage.getItem("theme");
       if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
     } catch {}
+    // 견본 타이핑 전에 완성된 코드가 먼저 보이지 않게 숨긴다. script.js가 못 뜨더라도 3초 뒤에는 보인다.
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("typing-pending");
+      setTimeout(() => document.documentElement.classList.remove("typing-pending"), 3000);
+    }
   </script>
   <title>Monatendard — 한글 코딩 글꼴</title>
 </head>

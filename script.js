@@ -221,6 +221,61 @@ const spy = new IntersectionObserver(
 
 spySections.forEach((section) => spy.observe(section));
 
+// Hero 견본 타이핑 효과: 처음 한 번만 돌고, 동작 줄이기 설정이면 건너뛴다.
+// 견본을 누르거나 격자 보기를 켜면 바로 끝까지 채운다.
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// 글자 하나를 친 뒤 다음 글자까지 쉴 시간(ms). char는 방금 친 글자, next는 다음에 칠 글자다.
+function typingDelay(char, next) {
+  if (char === "\n") return 160; // 다음 줄을 생각하는 틈
+  if (char === " " && next === " ") return 4; // 들여쓰기는 빠르게
+  if (/[;{}),]/.test(char)) return 45;
+  const jitter = Math.random() * 10;
+  if (/[가-힣]/.test(char)) return 24 + jitter; // 한글은 조합하듯 조금 천천히
+  return 12 + jitter;
+}
+
+async function typeSpecimen(pre) {
+  const code = pre.querySelector("code");
+  const walker = document.createTreeWalker(code, NodeFilter.SHOW_TEXT);
+  const parts = [];
+  while (walker.nextNode()) parts.push({ node: walker.currentNode, text: walker.currentNode.data });
+
+  // 다 친 뒤의 높이를 미리 잡아 두어 아래 내용이 밀리지 않게 한다.
+  pre.style.minHeight = `${pre.offsetHeight}px`;
+  parts.forEach((part) => (part.node.data = ""));
+  document.documentElement.classList.remove("typing-pending");
+  pre.setAttribute("aria-busy", "true");
+
+  const caret = document.createElement("span");
+  caret.className = "caret";
+  caret.setAttribute("aria-hidden", "true");
+
+  let skipped = false;
+  const skip = () => (skipped = true);
+  pre.addEventListener("pointerdown", skip, { once: true });
+  gridToggle?.addEventListener("change", skip, { once: true });
+
+  const chars = parts.flatMap((part) => Array.from(part.text, (char) => ({ part, char })));
+  for (let i = 0; i < chars.length && !skipped; i++) {
+    const { part, char } = chars[i];
+    part.node.data += char;
+    part.node.parentNode.insertBefore(caret, part.node.nextSibling);
+    await sleep(typingDelay(char, chars[i + 1]?.char ?? ""));
+  }
+
+  parts.forEach((part) => (part.node.data = part.text));
+  pre.removeAttribute("aria-busy");
+  pre.style.minHeight = "";
+  code.appendChild(caret);
+  caret.classList.add("is-idle");
+  setTimeout(() => caret.remove(), skipped ? 0 : 2400);
+}
+
+if (specimenCode && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.fonts.ready.then(() => typeSpecimen(specimenCode));
+}
+
 // macOS 방문자에게는 설치 탭을 macOS로 먼저 보여 준다.
 const platform = navigator.userAgentData?.platform ?? navigator.platform ?? "";
 if (/mac/i.test(platform)) document.querySelector("#os-tab-mac")?.click();

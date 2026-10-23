@@ -299,6 +299,21 @@ button, select, input { font: inherit; color: inherit; }
   background-image: repeating-linear-gradient(to right, var(--grid) 0 1px, transparent 1px 1ch);
 }
 
+.typing-pending .specimen-code code { visibility: hidden; }
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.15em;
+  margin-right: -2px;
+  vertical-align: text-bottom;
+  background: var(--ink);
+}
+
+.caret.is-idle { animation: caret-blink 1s steps(1) infinite; }
+
+@keyframes caret-blink { 50% { opacity: 0; } }
+
 .specimen-caption { padding: 0.5rem 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.8125rem; }
 
 .tok-k { color: var(--tok-k); }
