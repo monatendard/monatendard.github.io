@@ -24,3 +24,6 @@
 chrome --headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 \
   --virtual-time-budget=8000 --screenshot=assets/og-image.png http://localhost:8765/assets/og/og.html
 ```
+
+이미지를 바꾼 뒤에는 `index.html`의 `og:image`, `twitter:image` 주소 끝 `?v=` 숫자를 하나 올립니다.
+LinkedIn·카카오톡 같은 서비스는 이미지를 URL 기준으로 캐시해서, 주소가 같으면 예전 이미지를 계속 보여 줍니다.
