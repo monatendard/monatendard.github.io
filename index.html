@@ -228,6 +228,34 @@
         </div>
 
         <div class="tab-panel" role="tabpanel" id="os-win" aria-labelledby="os-tab-win">
+          <h3>Scoop으로 설치</h3>
+          <p class="note">Windows 10 1809 이상에서 <a href="https://scoop.sh/" target="_blank" rel="noopener">Scoop</a>과 Git이 필요합니다. 일반 사용자 PowerShell에서 bucket을 처음 한 번 등록한 뒤, 필요한 패밀리만 설치하세요.</p>
+          <div class="code-block">
+            <div class="code-head"><span>PowerShell · 최초 등록</span><button class="copy" type="button" data-copy-target="code-scoop-bucket">복사</button></div>
+            <pre><code id="code-scoop-bucket">scoop bucket add monatendard https://github.com/younjungpark/Monatendard.git</code></pre>
+          </div>
+          <div class="code-block">
+            <div class="code-head"><span>PowerShell · 일반판</span><button class="copy" type="button" data-copy-target="code-scoop-standard">복사</button></div>
+            <pre><code id="code-scoop-standard">scoop install monatendard/monatendard</code></pre>
+          </div>
+          <div class="code-block">
+            <div class="code-head"><span>PowerShell · Nerd판</span><button class="copy" type="button" data-copy-target="code-scoop-nerd">복사</button></div>
+            <pre><code id="code-scoop-nerd">scoop install monatendard/monatendard-nerd</code></pre>
+          </div>
+          <p class="note">전체 사용자 설치(<code>-g</code>)는 지원하지 않습니다. 기존 ZIP 설치본은 해당 제거 스크립트로 먼저 제거하세요. 업데이트·제거 전에는 글꼴을 사용하는 앱을 닫으세요. 설치 후에는 앱을 다시 시작하세요.</p>
+          <details>
+            <summary>업데이트·제거 명령</summary>
+            <p class="note">필요한 패키지 이름만 지정하세요. <code>scoop update</code>로 목록을 갱신한 다음 실행합니다.</p>
+            <div class="code-block">
+              <div class="code-head"><span>PowerShell · 업데이트</span><button class="copy" type="button" data-copy-target="code-scoop-update">복사</button></div>
+              <pre><code id="code-scoop-update">scoop update monatendard monatendard-nerd</code></pre>
+            </div>
+            <div class="code-block">
+              <div class="code-head"><span>PowerShell · 제거</span><button class="copy" type="button" data-copy-target="code-scoop-uninstall">복사</button></div>
+              <pre><code id="code-scoop-uninstall">scoop uninstall monatendard monatendard-nerd</code></pre>
+            </div>
+          </details>
+          <h3>ZIP으로 직접 설치</h3>
           <ul class="downloads">
             <li>
               <a href="https://github.com/younjungpark/Monatendard/releases/download/v0.3.0/Monatendard-v0.3.0-Desktop.zip">
