@@ -67,7 +67,7 @@
           <a class="button button-primary" href="#install">내려받기</a>
           <a class="button" href="#try">써 보기</a>
         </div>
-        <p class="hero-meta">v0.3.1 · Windows · macOS · 웹폰트 · SIL OFL 1.1</p>
+        <p class="hero-meta">v0.3.1 · Windows · macOS · Linux · 웹폰트 · SIL OFL 1.1</p>
       </div>
 
       <figure class="specimen">
@@ -224,6 +224,7 @@
         <div class="tab-list" role="tablist" aria-label="운영체제">
           <button class="tab" role="tab" id="os-tab-win" aria-controls="os-win" aria-selected="true">Windows</button>
           <button class="tab" role="tab" id="os-tab-mac" aria-controls="os-mac" aria-selected="false" tabindex="-1">macOS</button>
+          <button class="tab" role="tab" id="os-tab-linux" aria-controls="os-linux" aria-selected="false" tabindex="-1">Linux</button>
           <button class="tab" role="tab" id="os-tab-web" aria-controls="os-web" aria-selected="false" tabindex="-1">웹폰트</button>
         </div>
 
@@ -295,6 +296,40 @@ brew install --cask younjungpark/monatendard/font-monatendard-nerd-font</code></
             <code>tap</code>은 처음 한 번만 실행합니다. 필요한 패밀리만 설치해도 됩니다.
             업데이트는 <code>brew upgrade --cask font-monatendard font-monatendard-nerd-font</code>입니다.
           </p>
+        </div>
+
+        <div class="tab-panel" role="tabpanel" id="os-linux" aria-labelledby="os-tab-linux" hidden>
+          <h3>설치 스크립트로 설치</h3>
+          <p class="note"><code>fontconfig</code> 기반 주요 데스크톱 Linux(Ubuntu/Debian, Fedora, Arch 등)에서 <code>bash</code>, <code>curl</code>(또는 <code>wget</code>), <code>unzip</code>, <code>sha256sum</code>, <code>fc-cache</code>가 필요합니다. 관리자 권한(<code>sudo</code>) 없이 현재 사용자 영역에만 설치합니다.</p>
+          <div class="code-block">
+            <div class="code-head"><span>터미널 · 일반판</span><button class="copy" type="button" data-copy-target="code-linux-standard">복사</button></div>
+            <pre><code id="code-linux-standard">curl -fsSL https://raw.githubusercontent.com/younjungpark/Monatendard/main/packaging/linux/install.sh | bash</code></pre>
+          </div>
+          <div class="code-block">
+            <div class="code-head"><span>터미널 · Nerd판</span><button class="copy" type="button" data-copy-target="code-linux-nerd">복사</button></div>
+            <pre><code id="code-linux-nerd">curl -fsSL https://raw.githubusercontent.com/younjungpark/Monatendard/main/packaging/linux/install.sh | bash -s -- --nerd</code></pre>
+          </div>
+          <div class="code-block">
+            <div class="code-head"><span>터미널 · 일반판 + Nerd판</span><button class="copy" type="button" data-copy-target="code-linux-all">복사</button></div>
+            <pre><code id="code-linux-all">curl -fsSL https://raw.githubusercontent.com/younjungpark/Monatendard/main/packaging/linux/install.sh | bash -s -- --all</code></pre>
+          </div>
+          <p class="note">공식 릴리스 ZIP의 SHA256 체크섬을 검증한 뒤 <code>~/.local/share/fonts/</code> 아래 전용 폴더에 설치합니다. 기존 수동 설치본이 있으면 덮어쓰지 않고 중단하므로 먼저 직접 삭제하세요. 업데이트는 같은 명령을 다시 실행하면 됩니다. 설치 후에는 앱을 다시 시작하세요.</p>
+          <details>
+            <summary>미리 보기·제거 명령</summary>
+            <p class="note">파일을 바꾸지 않고 예정 작업만 보려면 <code>--dry-run</code>을 붙입니다. 제거할 때는 대상 패밀리에 맞게 <code>--uninstall</code>을 실행합니다.</p>
+            <div class="code-block">
+              <div class="code-head"><span>터미널 · 미리 보기 (dry-run)</span><button class="copy" type="button" data-copy-target="code-linux-dryrun">복사</button></div>
+              <pre><code id="code-linux-dryrun">curl -fsSL https://raw.githubusercontent.com/younjungpark/Monatendard/main/packaging/linux/install.sh | bash -s -- --dry-run</code></pre>
+            </div>
+            <div class="code-block">
+              <div class="code-head"><span>터미널 · 제거 (일반판)</span><button class="copy" type="button" data-copy-target="code-linux-uninstall">복사</button></div>
+              <pre><code id="code-linux-uninstall">curl -fsSL https://raw.githubusercontent.com/younjungpark/Monatendard/main/packaging/linux/install.sh | bash -s -- --uninstall</code></pre>
+            </div>
+            <div class="code-block">
+              <div class="code-head"><span>터미널 · 제거 (모두)</span><button class="copy" type="button" data-copy-target="code-linux-uninstall-all">복사</button></div>
+              <pre><code id="code-linux-uninstall-all">curl -fsSL https://raw.githubusercontent.com/younjungpark/Monatendard/main/packaging/linux/install.sh | bash -s -- --all --uninstall</code></pre>
+            </div>
+          </details>
         </div>
 
         <div class="tab-panel" role="tabpanel" id="os-web" aria-labelledby="os-tab-web" hidden>

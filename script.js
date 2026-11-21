@@ -276,6 +276,9 @@ if (specimenCode && !window.matchMedia("(prefers-reduced-motion: reduce)").match
   document.fonts.ready.then(() => typeSpecimen(specimenCode));
 }
 
-// macOS 방문자에게는 설치 탭을 macOS로 먼저 보여 준다.
+// macOS·Linux 방문자에게는 해당 OS 설치 탭을 먼저 보여 준다.
 const platform = navigator.userAgentData?.platform ?? navigator.platform ?? "";
 if (/mac/i.test(platform)) document.querySelector("#os-tab-mac")?.click();
+else if (/linux/i.test(platform) && !/android/i.test(navigator.userAgent)) {
+  document.querySelector("#os-tab-linux")?.click();
+}
